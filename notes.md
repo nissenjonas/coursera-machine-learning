@@ -1,3 +1,33 @@
+# Machine Learning
+
+## TOC
+* Supervised learning
+  * Classification
+  * Regression
+* Unsupervised learning
+  * Clustering (identifying patterns in data)
+
+## Supervised Learning
+
+### Classification
+A Classification model predicts categories such as if a picture is a cat or dog.
+
+### Regression
+A Regression model redicts numbers, such as house prices.
+
+Most widely used
+
+Used when predicting: House prices, 
+
+#### Possible functions/models for regression
+
+* Linear
+  * Univariate linear regresion (one variable linear regression)
+  * f(x) = wx + b
+
+
+### Linear Regerssion
+
 1) Model 
 2) Cost Function
 3) Gradient descent
@@ -19,10 +49,10 @@ $$J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2
 $$\begin{align*} \text{repeat}&\text{ until convergence:} \lbrace \newline
  w &= w -  \alpha \frac{\partial J(w,b)}{\partial w} \tag{3}  \newline 
  b &= b -  \alpha \frac{\partial J(w,b)}{\partial b}  \newline \rbrace
-\end{align*}$$
-where, parameters $w$, $b$ are updated simultaneously.  
-The gradient is defined as:
+\end{align*}
 $$
+
+where, parameters $w$, $b$ are updated simultaneously.  
 
 The ***Gradient*** is defined as 
 
@@ -32,3 +62,55 @@ $$
   \frac{\partial J(w,b)}{\partial b}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)}) \tag{5}\\
 \end{align}
 $$
+
+
+
+## Gradient descent
+***Gradient Descent*** is the process of identifying the correct parameter/feature weights.
+
+If creating a model predicting the price of a house and you use area and age of the house as the inputs (x_1 and x_2) of a linear regression model - what should the w_1 and w_2 (parameter weights) be set to to best fit the available training data.
+
+<figure>
+    <img src="./slides/1_supervised_regression.png" style="width:1000px;"  />
+</figure>
+
+### Learning Rate ($\alpha$)
+The ***Learning Rate*** is the value used to increment the parameter weights for each iteration of ***Gradient Descent***.
+
+### Feature Scaling
+***Feature Scaling*** is the process of scaling the feature values to better fit the model.
+
+> You want to fit every feature into the range of `-1 <= x => 1`
+
+Having a suitable range of input values speeds up ***Gradient Descent*** and levels out the various inputs (x_1, ... x_m).
+
+Since the learning rate ($\alpha$) is the same for all iterations, but since some inputs can have very large numbers, the 
+
+<figure>
+    <img src="./slides/feature_scaling.png" style="width:1000px;"  alt="Feature Scaling"/>
+</figure>
+
+- Feature scaling, essentially dividing each positive feature by its maximum value, or more generally, rescale each feature by both its minimum and maximum values using (x-min)/(max-min). Both ways normalizes features to the range of -1 and 1, where the former method works for positive features which is simple and serves well for the lecture's example, and the latter method works for any features.
+- Mean normalization: $x_i := \dfrac{x_i - \mu_i}{max - min} $ 
+- Z-score normalization which we will explore below. 
+
+## Vectorization
+Makes the code shorter and the processing more effecient (paralellization)
+
+<figure>
+    <img src="./image.png" style="width:1000px;"  alt="Vectorization paralellization"/>
+</figure>
+
+
+<figure>
+    <img src="./image-1.png" style="width:1000px;"  alt="Vectorization paralellization"/>
+</figure>
+
+### Dot Product
+>The dot product multiplies the values in two vectors element-wise and then sums the result. Vector dot product requires the dimensions of the two vectors to be the same.
+
+$$ x = \sum_{i=0}^{n-1} a_i b_i $$
+
+<figure>
+    <img src="./slides/dot_product.gif" style="width:1000px;" >
+</figure>
