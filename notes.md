@@ -3,30 +3,32 @@
 ## TOC
 * Supervised learning
   * Classification
+    * Logistic Regression (Sigmoid function)
+    * Decision boundary
   * Regression
+    * Linear Regression
+    * Polynomial Regression
 * Unsupervised learning
   * Clustering (identifying patterns in data)
+* Vectorization
 
-## Supervised Learning
-
-### Classification
-A Classification model predicts categories such as if a picture is a cat or dog.
-
-### Regression
+## Regression
 A Regression model redicts numbers, such as house prices.
 
 Most widely used
 
 Used when predicting: House prices, 
 
-#### Possible functions/models for regression
+### Possible functions/models for regression
 
 * Linear
   * Univariate linear regresion (one variable linear regression)
-  * f(x) = wx + b
+    * f(x) = wx + b
+  * Multivariable linear regression
+  $$f_{\mathbf{w},b} = w_0x_0 + w_1x_1+ ... + w_{n-1}x_{n-1} + b \tag{1}$$
 
 
-### Linear Regerssion
+### Linear Regeression (one variable)
 
 1) Model 
 2) Cost Function
@@ -63,7 +65,11 @@ $$
 \end{align}
 $$
 
+### Cost function
+Linear Regression we have used the squared error cost function
+ $$J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2$$ 
 
+ Following the derivative of the cost leads to the minimum - basis for ***gradient descent*** for ***linear regression***.
 
 ## Gradient descent
 ***Gradient Descent*** is the process of identifying the correct parameter/feature weights.
